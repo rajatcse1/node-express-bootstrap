@@ -3,14 +3,11 @@ import "reflect-metadata";
 import { loadDependencies } from "./dependency-loader";
 import app from "./app";
 import { CONFIG } from "./configs";
+import { connectDB } from "./configs/db";
 
 const start = async () => {
   // app prerequisites
-  try {
-    // db connection
-  } catch (error) {
-    throw error;
-  }
+  await connectDB();
 
   // load tsyringe project dependencies
   await loadDependencies();
