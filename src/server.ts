@@ -1,7 +1,7 @@
-import express from "express";
+import "reflect-metadata";
 
-import app from "./app";
 import { loadDependencies } from "./dependency-loader";
+import app from "./app";
 import { CONFIG } from "./configs";
 
 const start = async () => {

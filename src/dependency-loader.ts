@@ -1,5 +1,4 @@
 // src/dependency-loader.ts
-import "reflect-metadata";
 import { glob } from "glob";
 import path from "path";
 
