@@ -1,14 +1,24 @@
 import express from "express";
-import dotenv from "dotenv";
-dotenv.config();
 
-const app = express();
+import app from "./app";
+import { loadDependencies } from "./dependency-loader";
+import { CONFIG } from "./configs";
 
-app.get("/", (req, res) => {
-  res.json("Hello from server");
-});
+const start = async () => {
+  // app prerequisites
+  try {
+    // db connection
+  } catch (error) {
+    throw error;
+  }
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port:${PORT}`);
-});
+  // load tsyringe project dependencies
+  await loadDependencies();
+
+  // start app
+  app.listen(CONFIG.PORT, () => {
+    console.log(`Server is running on port:${CONFIG.PORT}`);
+  });
+};
+
+start();
